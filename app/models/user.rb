@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :user_passwords
-  has_many :password, through: :user_passwords
+  has_many :passwords, through: :user_passwords
 end
