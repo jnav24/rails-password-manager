@@ -1,8 +1,12 @@
 class PasswordsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_password, except: [:index, :new, :create]
 
   def index
     @passwords = current_user.passwords
+  end
+
+  def show
   end
 
   def new
@@ -14,7 +18,7 @@ class PasswordsController < ApplicationController
 
     if @password.save
       redirect_to @password
-    elsif
+    else
       render :new, status: :unprocessable_entity
     end
   end
@@ -23,5 +27,9 @@ class PasswordsController < ApplicationController
 
   def password_params
     params.require(:password).permit(:url, :username, :password)
+  end
+
+  def set_password
+    @password = current_user.passwords.find(params[:id])
   end
 end
