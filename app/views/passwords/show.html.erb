@@ -1,16 +1,23 @@
-<h1><%= @password.url %></h1>
-<%= link_to 'Edit', edit_password_path %>
+<div class="flex justify-between items-center mb-4">
+  <h1>
+    <%= @password.url %>
+    <%= link_to @password.url, target: :_blank do %>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="inline-block size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+      </svg>
+  <% end %>
+  </h1>
+  <%= link_to 'Edit', edit_password_path %>
+</div>
 
-<h6>Username / Email</h6>
-<pre class="mt-0">
-  <code>
-    <%= @password.username %>
-  </code>
-</pre>
+<div class="space-y-4">
+  <div>
+    <h6>Username / Email</h6>
+    <pre class="mt-1 bg-gray-800 rounded-lg text-gray-200 p-4"><code><%= @password.username %></code></pre>
+  </div>
 
-<h6>Password</h6>
-<pre class="mt-0">
-  <code>
-    <%= @password.password %>
-  </code>
-</pre>
+  <div>
+    <h6>Password</h6>
+    <pre class="mt-1 bg-gray-800 rounded-lg text-gray-200 p-4"><code><%= @password.password %></code></pre>
+  </div>
+</div>
