@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :passwords
+  resources :passwords do
+    resources :shares, only: [:create, :destroy, :new]
+  end
+
   root "passwords#index"
 
   get "/up/", to: "up#index", as: :up
