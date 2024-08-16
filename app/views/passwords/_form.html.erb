@@ -22,7 +22,7 @@
 
   <div>
     <%= form.submit %>
-    <%= button_tag 'Delete', form: 'delete_password' %>
+    <%= button_tag 'Delete', form: 'delete_password' if current_user_password.deletable? %>
   </div>
 <% end %>
 
