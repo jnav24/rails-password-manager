@@ -46,11 +46,11 @@
       </div>
     </div>
 
-    <main class="prose max-w-screen-lg mx-auto mb-auto w-1/3">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <main class="prose container mx-auto mb-auto">
+      <%= render "shared/flash" %>
+      <%= render "shared/nav" %>
 
-      <%= yield %>
+      <div class="pt-8"><%= yield %></div>
     </main>
 
     <footer class="text-center mt-6 pb-6 h-10">
